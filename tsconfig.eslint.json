@@ -3,6 +3,7 @@
   "include": [
     "src/**/*",
     "babel.config.js",
+    "commitlint.config.js",
     ".eslintrc.js",
     "config/**/*"
   ],

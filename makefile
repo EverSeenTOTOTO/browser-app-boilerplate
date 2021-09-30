@@ -2,6 +2,9 @@ SHELL := /bin/bash
 
 DIST ?= dist
 
+prepare:
+	npx husky install
+
 lint:
 	npx eslint --fix .
 	@echo -e '\033[1;32mNo lint errors found.'
@@ -18,4 +21,4 @@ build\:dev: clean
 build\:prod: clean
 	npx webpack --config config/webpack.prod.js
 
-.PHONY: lint clean build test dev start
+.PHONY: lint clean build test dev start prepare

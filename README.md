@@ -1,6 +1,6 @@
 # browser-webpack-boilerplate
 
- A web project boilerplate with typescript, webpack, eslint support.
+A web project boilerplate with typescript, webpack, eslint, husky, lint-staged, commitlint support.
 
 ## Install
 
