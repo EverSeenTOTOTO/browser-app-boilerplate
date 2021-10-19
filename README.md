@@ -10,6 +10,8 @@ cd <your project name>
 yarn
 ```
 
+> Note: You need to install commitizen globally: `npm i -g commitizen`. 
+
 ## Usage
 
 + start: `make start`
