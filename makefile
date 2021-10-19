@@ -16,7 +16,7 @@ start:
 	npx webpack serve --config config/webpack.dev.js
 
 build\:dev: clean
-	npx webpack --config config/webpack.dev.js
+	npx webpack serve --config config/webpack.dev.js
 
 build\:prod: clean
 	npx webpack --config config/webpack.prod.js
