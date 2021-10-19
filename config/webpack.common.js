@@ -14,9 +14,6 @@ module.exports = {
     clean: true,
     filename: 'index.js',
     path: paths.dist,
-    library: {
-      type: 'umd',
-    },
   },
   target: 'web',
   devtool: 'source-map',
