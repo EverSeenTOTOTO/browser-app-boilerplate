@@ -1,20 +1,21 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
+    "target": "esnext",
+    "module": "esnext",
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "outDir": "./dist/",
     "baseUrl": ".",
     "strict": true,
+    "lib": [
+      "DOM", "ESNEXT"
+    ],
+    "noEmit": true,
     "noUnusedLocals": true,
+    "moduleResolution": "node",
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-      "types": [
-        "reflect-metadata"
-      ],
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,

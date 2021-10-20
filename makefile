@@ -15,10 +15,10 @@ clean:
 start:
 	npx webpack serve --config config/webpack.dev.js
 
-build\:dev: clean
+dev: clean
 	npx webpack serve --config config/webpack.dev.js
 
-build\:prod: clean
+build: clean
 	npx webpack --config config/webpack.prod.js
 
 .PHONY: lint clean build test dev start prepare

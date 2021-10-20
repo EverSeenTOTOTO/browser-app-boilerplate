@@ -1,11 +1,9 @@
-import 'reflect-metadata'; // reflect metadata support, uninstall if you do not need
-import { world } from '@/aliase';
-import './demo.scss';
+import './index.scss';
 
-const hello = `${process.env.HELLO} ${world}`;
+const hello = `${process.env.HELLO} frontend`;
+const root = document.createElement('div');
 
-const div = document.createElement('div');
-div.classList.add('demo');
-div.innerHTML = hello;
+root.id = 'root';
+root.innerHTML = hello;
 
-document.body.appendChild(div);
+document.body.appendChild(root);

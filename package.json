@@ -1,10 +1,7 @@
 {
   "name": "browser-webpack-boilerplate",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "dependencies": {
-    "reflect-metadata": "^0.1.13"
-  },
+  "private": true,
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/preset-env": "^7.12.7",
