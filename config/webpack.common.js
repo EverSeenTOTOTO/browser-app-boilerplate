@@ -2,6 +2,7 @@ const DotenvWebpackPlugin = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const postcssNormalize = require('postcss-normalize');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 const paths = {
@@ -12,7 +13,13 @@ const paths = {
 
 // thanks for CRA
 const getStyleLoaders = () => [
-  require.resolve('style-loader'),
+  isDevelopment
+    ? {
+      loader: 'style-loader',
+    }
+    : {
+      loader: MiniCssExtractPlugin.loader,
+    },
   {
     loader: require.resolve('css-loader'),
     options: {
@@ -84,6 +91,7 @@ module.exports = {
   },
   plugins: [
     new DotenvWebpackPlugin(),
+    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin(),
   ],
   devServer: {
