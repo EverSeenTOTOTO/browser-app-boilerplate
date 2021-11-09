@@ -97,10 +97,6 @@ module.exports = {
   devServer: {
     port: 3000,
     compress: true,
-    noInfo: false,
-    stats: 'errors-only',
-    inline: true,
-    lazy: false,
     hot: true,
     headers: { 'Access-Control-Allow-Origin': '*' },
     contentBase: paths.dist,
