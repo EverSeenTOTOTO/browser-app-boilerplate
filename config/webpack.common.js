@@ -1,4 +1,5 @@
 const DotenvWebpackPlugin = require('dotenv-webpack');
+const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const postcssNormalize = require('postcss-normalize');
@@ -69,6 +70,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+      },
+      {
         test: /\.css$/,
         use: getStyleLoaders(),
       },
@@ -91,6 +96,7 @@ module.exports = {
   },
   plugins: [
     new DotenvWebpackPlugin(),
+    new VueLoaderPlugin(),
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin(),
   ],
