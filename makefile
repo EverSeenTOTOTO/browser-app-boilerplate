@@ -12,9 +12,6 @@ lint:
 clean:
 	-rm -r ${DIST}
 
-start:
-	npx webpack serve --config config/webpack.dev.js
-
 dev: clean
 	npx webpack serve --config config/webpack.dev.js
 
