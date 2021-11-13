@@ -21,13 +21,13 @@ module.exports = {
   rules: {
     'no-console': 'off',
     'import/prefer-default-export': 'off',
+    'import/no-extraneous-dependencies': 'off',
   },
   overrides: [
     {
       files: '*.js',
       rules: {
         '@typescript-eslint/no-var-requires': 'off',
-        'import/no-extraneous-dependencies': 'off',
         'global-require': 'off',
       },
     },

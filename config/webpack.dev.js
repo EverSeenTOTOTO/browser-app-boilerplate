@@ -1,18 +1,17 @@
 const { merge } = require('webpack-merge');
+const { ESBuildMinifyPlugin } = require('esbuild-loader');
+const base = require('./webpack.common');
 
-const common = require('./webpack.common');
-
-module.exports = merge(common, {
-  mode: 'development',
+module.exports = merge(base, {
   module: {
     rules: [
       {
-        test: /\.(j|t)s$/,
+        test: /\.m?(j|t)sx?$/,
         use: [
           {
             loader: 'esbuild-loader',
             options: {
-              loader: 'ts',
+              loader: 'tsx',
               target: 'es2015',
               tsconfigRaw: require('../tsconfig.json'),
             },
@@ -23,5 +22,10 @@ module.exports = merge(common, {
   },
   optimization: {
     minimize: false,
+    minimizer: [
+      new ESBuildMinifyPlugin({
+        target: 'es2015',
+      }),
+    ],
   },
 });

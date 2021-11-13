@@ -12,13 +12,10 @@ lint:
 clean:
 	-rm -r ${DIST}
 
-start:
-	npx webpack serve --config config/webpack.dev.js
-
 dev: clean
-	npx webpack serve --config config/webpack.dev.js
+	npx webpack serve --node-env development --config config/webpack.dev.js
 
 build: clean
-	npx webpack --config config/webpack.prod.js
+	npx webpack --node-env production --config config/webpack.prod.js
 
 .PHONY: lint clean build test dev start prepare

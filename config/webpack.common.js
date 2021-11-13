@@ -1,15 +1,9 @@
 const DotenvWebpackPlugin = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
 const postcssNormalize = require('postcss-normalize');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const isDevelopment = process.env.NODE_ENV === 'development';
-const paths = {
-  src: path.resolve(__dirname, '..', 'src'),
-  entry: path.resolve(__dirname, '..', 'src/index.ts'),
-  dist: path.resolve(__dirname, '..', 'dist'),
-};
+const { isDevelopment, paths } = require('./utils');
 
 // thanks for CRA
 const getStyleLoaders = () => [
