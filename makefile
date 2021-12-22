@@ -7,7 +7,7 @@ prepare:
 
 lint:
 	npx eslint --fix .
-	npx stylelint "**/*.{css,scss}"
+	npx stylelint "**/*.{css,scss,vue}"
 	@echo -e '\033[1;32mNo lint errors found.'
 
 clean:
