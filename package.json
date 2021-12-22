@@ -38,6 +38,11 @@
     "react-dom": "^17.0.2",
     "sass-loader": "^12.2.0",
     "style-loader": "^3.3.1",
+    "stylelint": "^14.1.0",
+    "stylelint-config-idiomatic-order": "^8.1.0",
+    "stylelint-config-standard-scss": "^3.0.0",
+    "stylelint-order": "^5.0.0",
+    "stylelint-scss": "^4.0.0",
     "typescript": "^4.1.2",
     "webpack": "^5.37.1",
     "webpack-cli": "^4.7.0",
@@ -45,7 +50,8 @@
     "webpack-merge": "^5.8.0"
   },
   "lint-staged": {
-    "*.{vue,js,ts,jsx,tsx}": "eslint --cache --fix"
+    "*.{vue,js,ts,jsx,tsx}": "eslint --cache --fix",
+    "*.{css,scss}": "stylelint --fix"
   },
   "config": {
     "commitizen": {
