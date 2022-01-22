@@ -1,7 +1,9 @@
 {
   "name": "browser-webpack-boilerplate",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "sass": "^1.49.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/preset-env": "^7.12.7",
@@ -25,7 +27,6 @@
     "husky": "^6.0.0",
     "lint-staged": ">=10",
     "mini-css-extract-plugin": "^2.4.4",
-    "node-sass": "^6.0.1",
     "postcss": "^8.3.9",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-loader": "^6.2.0",

@@ -8,8 +8,16 @@
     "baseUrl": ".",
     "strict": true,
     "lib": [
-      "DOM", "ESNEXT"
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
     ],
+    "types": [
+      "webpack-env",
+      "node"
+    ],
+    "jsx": "preserve",
     "noEmit": true,
     "noUnusedLocals": true,
     "moduleResolution": "node",
@@ -28,9 +36,9 @@
     }
   },
   "include": [
-    "src/**/*",
+    "src/**/*.ts",
+    "src/**/*.tsx",
     "*/__test__/**/*"
   ],
-  "exclude": [
-  ]
+  "exclude": []
 }
