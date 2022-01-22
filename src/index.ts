@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import App from './App.vue';
+import App from '@/App.vue';
 import './index.scss';
 
 const root = document.createElement('div');
