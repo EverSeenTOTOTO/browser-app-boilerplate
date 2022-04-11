@@ -105,12 +105,9 @@ module.exports = {
     compress: true,
     hot: true,
     headers: { 'Access-Control-Allow-Origin': '*' },
-    contentBase: paths.dist,
-    watchOptions: {
-      aggregateTimeout: 300,
-      ignored: /node_modules/,
-      poll: 100,
-    },
+    watchFiles: [
+      'package.json',
+    ],
     historyApiFallback: {
       verbose: true,
       disableDotRule: false,
