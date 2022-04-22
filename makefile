@@ -7,19 +7,19 @@ prepare:
 
 lint:
 	npx eslint --fix .
-	npx stylelint "**/*.{css,scss}" --fix
+	npx stylelint "src/*.{css,scss}" --fix
 	@echo -e '\033[1;32mNo lint errors found.'
 
 clean:
 	-rm -r ${DIST}
 
 dev: clean
-	npx webpack serve --config config/webpack.dev.js
+	npx vite --mode development --config config/vite.dev.js
 
 build: clean
-	npx webpack --config config/webpack.prod.js
+	npx vite build --mode production --config config/vite.prod.js
 
 start: build
-	npx serve -s ${DIST}
+	npx vite preview --port 3000
 
 .PHONY: lint clean build test dev start prepare
