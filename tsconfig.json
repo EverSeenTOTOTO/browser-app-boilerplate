@@ -10,12 +10,7 @@
     "lib": [
       "esnext",
       "dom",
-      "dom.iterable",
-      "scripthost"
-    ],
-    "types": [
-      "webpack-env",
-      "node"
+      "dom.iterable"
     ],
     "jsx": "preserve",
     "noEmit": true,
@@ -28,7 +23,10 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "skipLibCheck": true,
+    "useDefineForClassFields": true,
     "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
     "paths": {
       "@/*":[
         "src/*"
@@ -36,9 +34,7 @@
     }
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "*/__test__/**/*"
+    "src"
   ],
   "exclude": []
 }

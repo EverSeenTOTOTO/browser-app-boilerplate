@@ -1,9 +1,12 @@
 import './index.scss';
 
-const hello = `${process.env.HELLO} frontend`;
-const root = document.createElement('div');
+const hello = `${import.meta.env.VITE_HELLO} frontend`;
+const root = document.getElementById('root');
 
-root.id = 'root';
-root.innerHTML = hello;
+if (root) {
+  root.innerHTML = hello;
 
-document.body.appendChild(root);
+  document.body.appendChild(root);
+} else {
+  console.error('Root element #app not found');
+}

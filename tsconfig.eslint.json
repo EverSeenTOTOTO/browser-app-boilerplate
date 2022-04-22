@@ -1,11 +1,11 @@
 {
   "extends": "./tsconfig.json",
   "include": [
-    "src/**/*",
+    "src",
     "babel.config.js",
     "commitlint.config.js",
     ".eslintrc.js",
-    "config/**/*"
+    "config"
   ],
   "exclude": []
 }
