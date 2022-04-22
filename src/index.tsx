@@ -1,14 +1,15 @@
 import React from 'react';
-import ReactDom from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import './index.scss';
 
 const hello = `${process.env.HELLO} frontend`;
 
 const App = () => <div>{hello}</div>;
+const container = document.createElement('div');
 
-const root = document.createElement('div');
+container.id = 'root';
+document.body.appendChild(container);
 
-root.id = 'root';
-document.body.appendChild(root);
+const root = createRoot(container);
 
-ReactDom.render(<App />, root);
+root.render(<App />);
