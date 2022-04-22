@@ -54,7 +54,7 @@ module.exports = {
     filename: 'index.js',
     path: paths.dist,
   },
-  target: 'web',
+  target: ['browserslist'],
   devtool: 'source-map',
   resolve: {
     alias: {

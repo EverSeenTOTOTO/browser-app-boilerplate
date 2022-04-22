@@ -19,4 +19,7 @@ dev: clean
 build: clean
 	npx webpack --config config/webpack.prod.js
 
+start: build
+	npx serve -s ${DIST}
+
 .PHONY: lint clean build test dev start prepare
