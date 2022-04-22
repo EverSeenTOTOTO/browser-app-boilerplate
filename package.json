@@ -2,8 +2,8 @@
   "name": "browser-webpack-boilerplate",
   "private": true,
   "dependencies": {
-    "sass": "^1.49.0",
-    "vue": "^3.2.21"
+    "sass": "^1.50.1",
+    "vue": "^3.2.33"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
