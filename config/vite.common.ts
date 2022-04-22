@@ -3,6 +3,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import path from 'path';
 import postcssNormalize from 'postcss-normalize';
+import vue from '@vitejs/plugin-vue';
 
 const paths = {
   src: path.resolve(__dirname, '..', 'src'),
@@ -34,4 +35,7 @@ export default ({ mode }) => ({
     },
     devSourcemap: mode === 'development',
   },
+  plugins: [
+    vue(),
+  ],
 });

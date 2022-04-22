@@ -1,10 +1,12 @@
 {
   "extends": [
     "stylelint-config-standard-scss",
-    "stylelint-config-idiomatic-order"
+    "stylelint-config-idiomatic-order",
+    "stylelint-config-recommended-vue/scss"
   ],
   "plugins": [
     "stylelint-order",
     "stylelint-scss"
-  ]
+  ],
+  "ignoreFiles": ["./dist/**"]
 }
