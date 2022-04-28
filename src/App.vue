@@ -1,11 +1,5 @@
-<script>
-export default {
-  setup() {
-    return {
-      hello: `${import.meta.env.VITE_HELLO} frontend`,
-    };
-  },
-};
+<script setup>
+const hello = `${import.meta.env.VITE_HELLO} vue`;
 </script>
 <template>
   <div class="scoped">

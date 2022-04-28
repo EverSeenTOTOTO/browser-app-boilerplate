@@ -36,6 +36,8 @@ export default ({ mode }) => ({
     devSourcemap: mode === 'development',
   },
   plugins: [
-    vue(),
+    vue({
+      reactivityTransform: true,
+    }),
   ],
 });
