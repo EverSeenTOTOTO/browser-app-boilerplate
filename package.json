@@ -48,7 +48,7 @@
     "stylelint-scss": "^4.0.0",
     "typescript": "4.4.4",
     "vue-eslint-parser": "^8.0.1",
-    "vue-loader": "^16.8.3",
+    "vue-loader": "^17.0.0",
     "webpack": "^5.37.1",
     "webpack-cli": "^4.7.0",
     "webpack-dev-server": "^4.8.1",
@@ -56,7 +56,7 @@
   },
   "lint-staged": {
     "*.{vue,js,ts,jsx,tsx}": "eslint --cache --fix",
-    "*.{css,scss}": "stylelint --fix"
+    "*.{css,scss,vue}": "stylelint --fix"
   },
   "config": {
     "commitizen": {
