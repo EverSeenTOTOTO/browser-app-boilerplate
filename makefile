@@ -22,8 +22,9 @@ dev: clean
 
 .PHONY: build
 build: clean
-	npx vite build --mode production --config config/vite.prod.ts
-	npx vite build --mode production --config config/vite.server.ts
+	# parallel use \n to separate inputs
+	echo -e "prod\\nserver\\nserverEntry" |\
+		parallel -j4 --tty "npx vite build --mode production --config config/vite.{}.ts"
 
 .PHONY: start
 start: build

@@ -9,8 +9,8 @@ export default defineConfig(() => ({
     rollupOptions: {
       input: paths.server,
       output: {
-        dir: undefined,
-        file: paths.serverBundle,
+        dir: undefined, // must leave undefined explicitly
+        file: paths.serverOutput,
       },
     },
   },

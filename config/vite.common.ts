@@ -4,15 +4,16 @@ import vue from '@vitejs/plugin-vue';
 
 export const paths = {
   src: path.resolve(__dirname, '..', 'src'),
-  entry: path.resolve(__dirname, '..', 'src/index.ts'),
-  server: path.resolve(__dirname, '..', 'src/server/index.ts'),
   dist: path.resolve(__dirname, '..', 'dist'),
-  serverBundle: path.resolve(__dirname, '..', 'dist/server.js'),
+  server: path.resolve(__dirname, '..', 'src/server/index.ts'), // 服务端代码入口
+  serverEntry: path.resolve(__dirname, '..', 'src/index.server.ts'), // 服务端同构应用入口
+  serverOutput: path.resolve(__dirname, '..', 'dist/server.js'),
 };
 
 export default ({ mode }) => ({
   build: {
     sourcemap: true,
+    emptyOutDir: false,
   },
   resolve: {
     alias: {

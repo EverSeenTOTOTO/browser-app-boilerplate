@@ -5,15 +5,21 @@ import express from 'express';
 const server = express();
 const port = 3000;
 
-const html = path.join(__dirname, 'index.html');
+const serverEntry = path.join(__dirname, 'index.server.js');
+const template = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf-8');
+// eslint-disable-next-line import/no-dynamic-require, @typescript-eslint/no-var-requires
+const { render } = require(serverEntry);
 
 server.use(express.static(__dirname, {
   index: false,
 }));
 
-server.get('*', (_req, res) => {
+server.get('*', async (req, res) => {
   res.setHeader('Content-Type', 'text/html');
-  fs.createReadStream(html).pipe(res);
+
+  const [html] = await render(req.originalUrl);
+
+  res.end(template.replace('<!--app-html-->', html));
 });
 
 (async function main() {
