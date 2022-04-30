@@ -34,11 +34,11 @@ module.exports = {
   },
   overrides: [
     {
-      files: '*.js',
+      files: 'config/**/*.ts',
       rules: {
-        '@typescript-eslint/no-var-requires': 'off',
-        'import/no-extraneous-dependencies': 'off',
         'global-require': 'off',
+        'import/no-extraneous-dependencies': 'off',
+        '@typescript-eslint/no-var-requires': 'off',
       },
     },
     {

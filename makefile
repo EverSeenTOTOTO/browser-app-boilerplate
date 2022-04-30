@@ -18,13 +18,17 @@ clean:
 
 .PHONY: dev
 dev: clean
-	npx vite --mode development --config config/vite.dev.js
+	npx vite --mode development --config config/vite.dev.ts
 
 .PHONY: build
 build: clean
-	npx vite build --mode production --config config/vite.prod.js
+	npx vite build --mode production --config config/vite.prod.ts
+	npx vite build --mode production --config config/vite.server.ts
 
 .PHONY: start
 start: build
-	npx vite preview --port 3000
+	node ${DIST}/server.js
 
+.PHONY: server
+server:
+	node ${DIST}/server.js
