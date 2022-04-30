@@ -1,13 +1,15 @@
-<script setup>
-const hello = `${import.meta.env.VITE_HELLO} vue`;
-</script>
 <template>
-  <div class="scoped">
-    {{ hello }}
+  <div>
+    <router-link to="/">
+      Home
+    </router-link>|
+    <router-link to="/about">
+      About
+    </router-link>
+    <router-view v-slot="{ Component }">
+      <Suspense>
+        <component :is="Component" />
+      </Suspense>
+    </router-view>
   </div>
 </template>
-<style lang="scss" scoped>
-.scoped {
-  color: blue;
-}
-</style>

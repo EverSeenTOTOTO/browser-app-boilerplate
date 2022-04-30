@@ -1,13 +1,14 @@
-import { createApp } from 'vue';
-import App from '@/App.vue';
+import { createApp } from './createApp';
 import './index.scss';
 
 const root = document.getElementById('root');
 
 if (root) {
-  const app = createApp(App);
+  const { app, router } = createApp();
 
-  app.mount(root);
+  router.isReady().then(() => {
+    app.mount('#root');
+  });
 } else {
   console.error('Root element #root not found');
 }
