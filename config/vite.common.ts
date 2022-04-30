@@ -5,6 +5,7 @@ import vue from '@vitejs/plugin-vue';
 export const paths = {
   src: path.resolve(__dirname, '..', 'src'),
   dist: path.resolve(__dirname, '..', 'dist'),
+  template: path.resolve(__dirname, '..', 'index.html'),
   server: path.resolve(__dirname, '..', 'src/server/index.ts'), // 服务端代码入口
   serverEntry: path.resolve(__dirname, '..', 'src/index.server.ts'), // 服务端同构应用入口
   serverOutput: path.resolve(__dirname, '..', 'dist/server.js'),
