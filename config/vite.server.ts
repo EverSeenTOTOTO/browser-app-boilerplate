@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import { paths } from './vite.common';
 
+// use vite as cjs bundler
 export default defineConfig(() => ({
   build: {
     ssr: true,
