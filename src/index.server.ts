@@ -1,13 +1,12 @@
-import { renderToString } from 'vue/server-renderer';
 import serializeJavascript from 'serialize-javascript';
-import { unref } from 'vue';
+import { renderToString } from 'vue/server-renderer';
 import { createApp, prefetch, RenderContext } from './main';
 
 // see index.html
 const APP_HTML = '<!--app-html-->';
 const APP_STATE = '<!--app-state-->';
 
-const serialize = (state: any) => `<script>;window.__PREFETCHED_STATE__=${serializeJavascript(state)};</script>`;
+const serialize = (state: Record<string, unknown>) => `<script>;window.__PREFETCHED_STATE__=${serializeJavascript(state)};</script>`;
 
 export async function render(context: RenderContext): Promise<Required<RenderContext>> {
   const { app, router, store } = createApp();
@@ -23,12 +22,8 @@ export async function render(context: RenderContext): Promise<Required<RenderCon
   await prefetch(ctx, router.currentRoute.value.matched).catch(console.error); // better nothrow
 
   const html = await renderToString(app, ctx);
-  const state: any = {};
-
-  Object.keys(ctx.store.state).forEach((k) => {
-    // unref state
-    state[k] = unref(ctx.store.state[k as keyof typeof ctx.store.state]);
-  });
+  // get ssr prefetched data
+  const state = store.dehydra();
 
   ctx.html = ctx.template
     .replace(APP_HTML, html)
