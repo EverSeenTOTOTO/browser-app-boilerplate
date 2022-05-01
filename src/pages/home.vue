@@ -1,17 +1,15 @@
 <script lang="ts">
-import { inject } from 'vue';
-import { Store, STORE_KEY } from '@/store';
+import { useStore } from '@/store';
+import { PrefetchContext } from '@/main';
 
 export default {
   name: 'HomePage',
-  async prefetch(store: Store) {
-    for (let i = 0; i < 1000; i++) {
-      store.increment();
-    }
+  prefetch(ctx: PrefetchContext) {
+    return ctx.store.fetchName();
   },
   setup() {
-    const hello = `${import.meta.env.VITE_HELLO} vue`;
-    const store = inject(STORE_KEY);
+    const store = useStore();
+    const hello = `hello ${store.state.name.value}`;
 
     return {
       hello,
@@ -22,12 +20,17 @@ export default {
 
 </script>
 <template>
-  <div class="scoped">
-    {{ hello }}
+  <div>
+    <router-link to="/about">
+      About
+    </router-link>
+    <div class="scoped">
+      {{ hello }}
+    </div>
+    <button @click="store.increment">
+      {{ store.state.count }}
+    </button>
   </div>
-  <button @click="store.increment">
-    {{ store.count }}
-  </button>
 </template>
 <style lang="scss" scoped>
 .scoped {

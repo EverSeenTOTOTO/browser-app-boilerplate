@@ -4,7 +4,7 @@ import {
   createWebHistory,
 } from 'vue-router';
 
-const pages = import.meta.glob('@/pages/*.vue');
+const pages = import.meta.glob('../pages/*.vue');
 
 const routes = Object.keys(pages).map((path) => {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -12,7 +12,7 @@ const routes = Object.keys(pages).map((path) => {
 
   return {
     path: name === '/home' ? '/' : name,
-    component: pages[path], // () => import('./pages/*.vue')
+    component: pages[path], // () => import('../pages/*.vue')
   };
 });
 

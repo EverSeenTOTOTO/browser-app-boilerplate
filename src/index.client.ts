@@ -1,4 +1,5 @@
-import { createApp, prefetch } from './createApp';
+import { createApp, prefetch } from './main';
+import './style/index.scss';
 
 const root = document.getElementById('root');
 
@@ -22,11 +23,17 @@ if (root) {
       return;
     }
 
+    // no server prefetched data, fallback to client fetch
     if (!window.__PREFETCHED_STATE__) {
-      await prefetch(store, matched).finally(next);
+      await prefetch({ app, router, store }, matched).finally(next);
       return;
     }
 
+    if (import.meta.env.DEV) {
+      console.log('prefetched state', window.__PREFETCHED_STATE__);
+    }
+
+    // merge server prefetched data
     store.hydrate(window.__PREFETCHED_STATE__);
     delete window.__PREFETCHED_STATE__;
 

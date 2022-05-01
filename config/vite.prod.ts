@@ -8,7 +8,7 @@ export default defineConfig((c) => {
     ...config,
     plugins: [
       ...(config.plugins || []),
-      legacy(),
+      legacy(), // legacy browser support
     ],
   };
 });
