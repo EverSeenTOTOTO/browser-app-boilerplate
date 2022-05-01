@@ -6,7 +6,7 @@
 
 ## Install
 
-> 注意vue ssr版本`vite-vue-ssr`不是默认分支。
+> 注意vue ssr版本`vue-vite-ssr`不是默认分支。
 
 ```bash
 npx degit EverSeenTOTOTO/browser-app-boilerplate#vue-vite-ssr my-project

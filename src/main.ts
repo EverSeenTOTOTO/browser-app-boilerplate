@@ -1,10 +1,20 @@
-import type { Request } from 'express';
+import type { Request, Response } from 'express';
 import { App as Application, createSSRApp } from 'vue';
 import { RouteLocationMatched, Router, RouteRecordNormalized } from 'vue-router';
 import App from './App.vue';
 import { createRouter } from './router';
-import type { Store } from './store';
+import type { AppStore } from './store';
 import { createStore, STORE_KEY } from './store';
+
+export type RenderContext = {
+  req: Request;
+  res: Response;
+  template: string;
+  store?: AppStore;
+  app?: Application;
+  router?: Router;
+  html?: string;
+};
 
 export function createApp() {
   const app = createSSRApp(App);
@@ -16,15 +26,6 @@ export function createApp() {
 
   return { app, router, store };
 }
-
-export type RenderContext = {
-  req: Request;
-  template: string;
-  store?: Store;
-  app?: Application;
-  router?: Router;
-  html?: string;
-};
 
 // prefetch fallback in client side has no req/template/html
 export type PrefetchContext = Omit<Required<RenderContext>, 'req' | 'template' | 'html'>;

@@ -13,7 +13,7 @@ export const paths = {
 
 export default ({ mode }) => ({
   build: {
-    sourcemap: true,
+    sourcemap: mode === 'development',
     emptyOutDir: false,
   },
   resolve: {

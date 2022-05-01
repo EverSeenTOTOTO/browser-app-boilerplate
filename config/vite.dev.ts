@@ -30,7 +30,7 @@ const devSSR = () => ({
       try {
         const { render } = await vite.ssrLoadModule(paths.serverEntry);
         const template = await vite.transformIndexHtml(req.originalUrl, templateHtml);
-        const { html } = await render({ req, template });
+        const { html } = await render({ req, res, template });
 
         res.end(html);
       } catch (e) {

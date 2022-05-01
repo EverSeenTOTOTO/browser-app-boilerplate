@@ -1,50 +1,56 @@
-import {
-  ref, inject, Ref, InjectionKey,
-} from 'vue';
-import fetch from 'isomorphic-fetch';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+import { inject, InjectionKey, Ref } from 'vue';
+import { HomeStore } from './modules/home';
+import { AboutStore } from './modules/about';
 
-export type State = {
-  name: string,
-  count: number
+export type Store<State> = {
+  [key in keyof State]: Ref<State[key]>
 };
 
-export type Store = {
-  state: { [key in keyof State]: Ref<State[keyof State]> };
-
-  // define how to merge prefetched data
+export type PrefetchStore<State> = Store<State> & {
+  // merge ssr prefetched data
   hydrate(state: State): void;
-
-  // define user actions
-  fetchName(): Promise<void>;
-  increment(): void
+  // provide ssr prefetched data
+  dehydra(): State;
 };
 
-export const STORE_KEY = Symbol('store') as InjectionKey<Store>;
+// if use glob import, seem hard to determine types
+export const createStore = () => Object.freeze({
+  home: new HomeStore(),
+  about: new AboutStore(),
 
-export const useStore = () => inject(STORE_KEY)!;
+  hydrate(data: Record<string, unknown>) {
+    Object.keys(data).forEach((key) => {
+      const k = key as keyof typeof this;
 
-export const createStore = (): Store => {
-  const count = ref(0);
-  const name = ref('');
+      // @ts-ignore
+      if (this[k] && this[k].hydrate) {
+        // @ts-ignore
+        this[k].hydrate(data[key]);
+      }
+    });
+  },
 
-  return {
-    state: {
-      count,
-      name,
-    },
-    hydrate(state: State) {
-      Object.keys(state).forEach((key) => {
-        const k = key as keyof State;
-        this.state[k].value = state[k];
-      });
-    },
-    async fetchName() {
-      const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/name`);
+  dehydra() {
+    const data: Record<string, unknown> = {};
 
-      name.value = await res.text();
-    },
-    increment() {
-      count.value++;
-    },
-  };
-};
+    Object.keys(this).forEach((key) => {
+      const k = key as keyof typeof this;
+
+      // @ts-ignore
+      if (this[k] && this[k].dehydra) {
+        // @ts-ignore
+        data[k] = this[k].dehydra();
+      }
+    });
+
+    return data;
+  },
+});
+
+export type AppStore = ReturnType<typeof createStore>;
+
+export const STORE_KEY = Symbol('store') as InjectionKey<AppStore>;
+
+export const useStore = <T extends keyof AppStore>(name: T): AppStore[T] => inject(STORE_KEY)![name];

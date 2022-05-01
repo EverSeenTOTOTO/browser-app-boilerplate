@@ -6,7 +6,7 @@ A vue ssr🚀 project boilerplate with full typescript, vite, eslint, stylelint,
 
 ## Install
 
-> Note the vue ssr version `vite-vue-ssr` is not default branch.
+> Note the vue ssr version `vue-vite-ssr` is not default branch.
 
 ```bash
 npx degit EverSeenTOTOTO/browser-app-boilerplate#vue-vite-ssr my-project

@@ -18,7 +18,7 @@ export const createServer = async () => {
   });
 
   server.get('*', async (req, res) => {
-    const { html } = await render({ req, template });
+    const { html } = await render({ req, res, template });
 
     res.setHeader('Content-Type', 'text/html');
     res.end(html);

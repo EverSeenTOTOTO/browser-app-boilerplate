@@ -5,15 +5,14 @@ import { PrefetchContext } from '@/main';
 export default {
   name: 'HomePage',
   prefetch(ctx: PrefetchContext) {
-    return ctx.store.fetchName();
+    return ctx.store.home.fetchName();
   },
   setup() {
-    const store = useStore();
-    const hello = `hello ${store.state.name.value}`;
+    const store = useStore('home');
+    const hello = `hello ${store.name.value}`;
 
     return {
       hello,
-      store,
     };
   },
 };
@@ -27,9 +26,6 @@ export default {
     <div class="scoped">
       {{ hello }}
     </div>
-    <button @click="store.increment">
-      {{ store.state.count }}
-    </button>
   </div>
 </template>
 <style lang="scss" scoped>
