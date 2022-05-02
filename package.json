@@ -7,8 +7,10 @@
     }
   },
   "dependencies": {
+    "@quasar/extras": "^1.13.6",
     "express": "^4.18.1",
     "isomorphic-fetch": "^3.0.0",
+    "quasar": "^2.6.6",
     "serialize-javascript": "^6.0.0",
     "vue": "^3.2.33",
     "vue-router": "^4.0.14"
@@ -19,6 +21,7 @@
     "@babel/preset-typescript": "^7.12.7",
     "@commitlint/cli": "^13.2.0",
     "@commitlint/config-conventional": "^13.2.0",
+    "@quasar/vite-plugin": "^1.0.9",
     "@types/express": "^4.17.13",
     "@types/isomorphic-fetch": "^0.0.36",
     "@types/node": "^14.14.10",
@@ -44,7 +47,7 @@
     "postcss-loader": "^6.2.0",
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^7.4.3",
-    "sass": "^1.49.0",
+    "sass": "1.32.0",
     "stylelint": "^14.1.0",
     "stylelint-config-idiomatic-order": "^8.1.0",
     "stylelint-config-recommended-vue": "^1.1.0",

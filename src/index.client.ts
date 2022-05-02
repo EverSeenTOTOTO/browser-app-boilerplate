@@ -1,5 +1,7 @@
 import { createApp, prefetch } from './main';
 import './style/index.scss';
+import '@quasar/extras/material-icons/material-icons.css';
+import 'quasar/src/css/index.sass';
 
 const root = document.getElementById('root');
 

@@ -1,6 +1,7 @@
 import path from 'path';
 import postcssNormalize from 'postcss-normalize';
 import vue from '@vitejs/plugin-vue';
+import { transformAssetUrls } from '@quasar/vite-plugin';
 
 export const paths = {
   src: path.resolve(__dirname, '..', 'src'),
@@ -9,6 +10,7 @@ export const paths = {
   server: path.resolve(__dirname, '..', 'src/server/index.ts'), // 服务端代码入口
   serverEntry: path.resolve(__dirname, '..', 'src/index.server.ts'), // 服务端同构应用入口
   serverOutput: path.resolve(__dirname, '..', 'dist/server.js'),
+  quasarVariables: path.resolve(__dirname, '..', 'src/style/quasar.variables.sass'),
 };
 
 export default ({ mode }) => ({
@@ -39,6 +41,9 @@ export default ({ mode }) => ({
   plugins: [
     vue({
       reactivityTransform: true,
+      template: {
+        transformAssetUrls,
+      },
     }),
   ],
 });

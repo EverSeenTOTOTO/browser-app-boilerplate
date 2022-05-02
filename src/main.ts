@@ -1,6 +1,7 @@
 import type { Request, Response } from 'express';
 import { App as Application, createSSRApp } from 'vue';
 import { RouteLocationMatched, Router, RouteRecordNormalized } from 'vue-router';
+import { Quasar } from 'quasar';
 import App from './App.vue';
 import { createRouter } from './router';
 import type { AppStore } from './store';
@@ -16,13 +17,14 @@ export type RenderContext = {
   html?: string;
 };
 
-export function createApp() {
+export function createApp(ctx?: RenderContext) {
   const app = createSSRApp(App);
   const router = createRouter();
   const store = createStore();
 
   app.use(router);
   app.provide(STORE_KEY, store);
+  app.use(Quasar, {}, ctx);
 
   return { app, router, store };
 }

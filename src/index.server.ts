@@ -9,7 +9,7 @@ const APP_STATE = '<!--app-state-->';
 const serialize = (state: Record<string, unknown>) => `<script>;window.__PREFETCHED_STATE__=${serializeJavascript(state)};</script>`;
 
 export async function render(context: RenderContext): Promise<Required<RenderContext>> {
-  const { app, router, store } = createApp();
+  const { app, router, store } = createApp(context);
   const ctx = context as Required<RenderContext>;
 
   router.push(ctx.req.originalUrl);

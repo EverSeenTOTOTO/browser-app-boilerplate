@@ -20,12 +20,14 @@ export default {
 </script>
 <template>
   <div>
-    <router-link to="/about">
-      About
-    </router-link>
-    <div class="scoped">
+    <q-banner class="scoped">
       {{ hello }}
-    </div>
+    </q-banner>
+    <router-link to="/about">
+      <q-chip>
+        About
+      </q-chip>
+    </router-link>
   </div>
 </template>
 <style lang="scss" scoped>

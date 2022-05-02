@@ -2,14 +2,20 @@
 import { useStore } from '@/store';
 
 const store = useStore('about');
+const increment = () => store.increment();
 </script>
 <template>
-  <router-link to="/">
-    Home
-  </router-link>
+  <q-chip icon="home">
+    <router-link to="/">
+      Home
+    </router-link>
+  </q-chip>
   <div>
-    <button @click="store.increment">
+    <q-btn
+      class="q-ma-sm"
+      @click="increment"
+    >
       {{ store.count }}
-    </button>
+    </q-btn>
   </div>
 </template>

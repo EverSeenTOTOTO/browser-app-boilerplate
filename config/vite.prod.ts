@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import legacy from '@vitejs/plugin-legacy';
-import base from './vite.common';
+import { quasar } from '@quasar/vite-plugin';
+import base, { paths } from './vite.common';
 
 export default defineConfig((c) => {
   const config = base(c);
@@ -9,6 +10,10 @@ export default defineConfig((c) => {
     plugins: [
       ...(config.plugins || []),
       legacy(), // legacy browser support
+      quasar({
+        sassVariables: paths.quasarVariables,
+        runMode: 'ssr-client',
+      }),
     ],
   };
 });

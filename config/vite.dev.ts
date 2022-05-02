@@ -1,5 +1,6 @@
 import fs from 'fs';
 import { defineConfig, ViteDevServer } from 'vite';
+import { quasar } from '@quasar/vite-plugin';
 import base, { paths } from './vite.common';
 
 const devMock = () => ({
@@ -48,6 +49,11 @@ export default defineConfig((c) => {
     ...config,
     plugins: [
       ...(config.plugins || []),
+      quasar({
+        sassVariables: paths.quasarVariables,
+        // quasar auto-import works bad with ssr-client on serverside
+        runMode: 'ssr-server',
+      }),
       devMock(),
       devSSR(),
     ],
