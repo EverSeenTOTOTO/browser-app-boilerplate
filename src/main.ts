@@ -29,8 +29,8 @@ export function createApp(ctx?: RenderContext) {
   return { app, router, store };
 }
 
-// prefetch fallback in client side has no req/template/html
-export type PrefetchContext = Omit<Required<RenderContext>, 'req' | 'template' | 'html'>;
+// prefetch fallback in client side has no req/res/template/html
+export type PrefetchContext = Omit<Required<RenderContext>, 'req' | 'res' | 'template' | 'html'>;
 
 export function prefetch(ctx: PrefetchContext, matched: (RouteLocationMatched | RouteRecordNormalized)[]) {
   const ps: Promise<void>[] = [];

@@ -9,7 +9,7 @@
 > 注意quasar ssr版本`quasar-vite-ssr`不是默认分支。
 
 ```bash
-npx degit EverSeenTOTOTO/browser-app-boilerplate#quasar-vite-ssr my-project
+git clone https://github.com/EverSeenTOTOTO/browser-app-boilerplate.git my-project -b quasar-vite-ssr --depth 1
 cd my-project
 yarn
 ```

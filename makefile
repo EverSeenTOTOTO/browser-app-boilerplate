@@ -9,7 +9,7 @@ prepare:
 .PHONY: lint
 lint:
 	npx eslint --fix .
-	npx stylelint "src/*.{css,scss,vue}" --fix
+	npx stylelint "src/**/*.{css,scss,vue}" --fix
 	@echo -e '\033[1;32mNo lint errors found.'
 
 .PHONY: clean

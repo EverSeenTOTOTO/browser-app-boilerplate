@@ -9,7 +9,7 @@ A vue ssr🚀 project boilerplate with full typescript, vite, eslint, stylelint,
 > Note the quasar ssr version `quasar-vite-ssr` is not default branch.
 
 ```bash
-npx degit EverSeenTOTOTO/browser-app-boilerplate#quasar-vite-ssr my-project
+git clone https://github.com/EverSeenTOTOTO/browser-app-boilerplate.git my-project -b quasar-vite-ssr --depth 1
 cd my-project
 yarn
 ```
