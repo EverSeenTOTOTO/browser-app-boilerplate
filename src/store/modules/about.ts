@@ -1,11 +1,6 @@
 import { ref } from 'vue';
-import type { Store } from '..';
 
-export type AboutState = {
-  count: number
-};
-
-export class AboutStore implements Store<AboutState> {
+export class AboutStore {
   count = ref(0);
 
   increment() {
