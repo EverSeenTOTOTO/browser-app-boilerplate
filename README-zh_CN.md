@@ -2,7 +2,7 @@
 
 [English](./README.md) [中文](./README-zh_CN.md)
 
-一个vue ssr🚀项目模板，具有完善的typescript，vite，eslint，stylelint, husky, lint-staged, commitlint支持。但不与任何状态管理、UI与样式库相绑定，专为那些总是选择`eject`并试图让一切都处在自己控制下的开发者提供。
+一个vue ssr🚀项目模板，具有完善的typescript，vite，eslint，stylelint, husky, lint-staged, commitlint支持。但**不**与任何状态管理、UI与样式库相绑定，专为那些总是选择`eject`并试图让一切都处在自己控制下的开发者提供。
 
 ## Install
 
@@ -34,9 +34,9 @@ yarn
 
     试试`make prepare`重新安装下husky钩子。
 
-4. 和[vite官方的ssr demo](https://github.com/vitejs/vite/tree/main/packages/playground/ssr-vue)有什么不同？
+4. 和[vite官方的ssr demo](https://github.com/vitejs/vite/tree/main/playground/ssr-vue)有什么不同？
 
-    最大的不同点在于，我们将`index.server.ts`中定义的`render`函数实现为[中间件](./config/vite.dev.ts), 然后仍然使用`ViteDevServer`做开发。而官方的例子将[server.js](https://github.com/vitejs/vite/blob/main/packages/playground/ssr-vue/server.js)也用作开发服务器，并设置`ViteDevServer`的`server.middlewareMode`来将`ViteDevServer`当作中间件使用。
+    最大的不同点在于，我们将`index.server.ts`中定义的`render`函数实现为[中间件](./config/vite.dev.ts), 然后仍然使用`ViteDevServer`做开发。而官方的例子将[server.js](https://github.com/vitejs/vite/blob/main/playground/ssr-vue/server.js)也用作开发服务器，并设置`ViteDevServer`的`server.middlewareMode`来将`ViteDevServer`当作中间件使用。
 
 ## Project Detail
 
@@ -46,7 +46,7 @@ yarn
     - vite.dev.ts           # client dev config
     - vite.prod.ts          # clientside build config
     - vite.server.ts        # server build config
-    - vite.serverEntry.ts   # serverside bundle build config
+    - vite.serverEntry.ts   # serverside build config
   + src/
     + server/
       - index.ts        # server entry
