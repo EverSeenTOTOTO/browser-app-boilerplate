@@ -1,6 +1,5 @@
-/* eslint-disable import/no-cycle */
 import { makeAutoObservable } from 'mobx';
-import { AppStore } from '..';
+import type { AppStore } from '..';
 
 export class AboutStore {
   count = 0

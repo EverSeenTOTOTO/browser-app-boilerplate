@@ -1,7 +1,6 @@
-/* eslint-disable import/no-cycle */
 import fetch from 'isomorphic-fetch';
 import { makeAutoObservable } from 'mobx';
-import { AppStore, PrefetchStore } from '..';
+import type { AppStore, PrefetchStore } from '..';
 
 export type HomeState = {
   name: string

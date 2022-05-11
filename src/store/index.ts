@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 import { createContext, useContext } from 'react';
 import { HomeStore } from './modules/home';
 import { AboutStore } from './modules/about';
