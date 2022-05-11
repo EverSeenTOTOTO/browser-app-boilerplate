@@ -19,8 +19,17 @@ module.exports = {
     'jest',
   ],
   rules: {
+    'max-len': 'off',
     'no-console': 'off',
+    'no-plusplus': 'off',
+    'no-underscore-dangle': 'off',
+    'no-restricted-syntax': 'off',
     'import/prefer-default-export': 'off',
+    'import/extensions': 'off',
+    'import/no-unresolved': 'warn',
+    '@typescript-eslint/interface-name-prefix': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
   },
   overrides: [
     {

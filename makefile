@@ -6,10 +6,10 @@ DIST ?= dist
 prepare:
 	npx husky install
 
-.PHONY: lint 
+.PHONY: lint
 lint:
 	npx eslint --fix .
-	npx stylelint "src/*.{css,scss}" --fix
+	npx stylelint "src/**/*.{css,scss}" --fix
 	@echo -e '\033[1;32mNo lint errors found.'
 
 .PHONY: clean
@@ -22,9 +22,14 @@ dev: clean
 
 .PHONY: build
 build: clean
-	npx vite build --mode production --config config/vite.prod.ts
+	# parallel use \n to separate inputs
+	echo -e "prod\\nserver\\nserverEntry" |\
+		parallel -j4 --tty "npx vite build --mode production --config config/vite.{}.ts"
 
 .PHONY: start
 start: build
-	npx vite preview --port 3000
+	node ${DIST}/server.js
 
+.PHONY: server
+server:
+	node ${DIST}/server.js
