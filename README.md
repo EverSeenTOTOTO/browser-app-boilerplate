@@ -9,10 +9,12 @@ A vue ssr🚀 project boilerplate with full typescript, vite, eslint, stylelint,
 > Note the vue ssr version `vue-vite-ssr` is not default branch.
 
 ```bash
-npx degit EverSeenTOTOTO/browser-app-boilerplate#vue-vite-ssr my-project
+git clone https://github.com/EverSeenTOTOTO/browser-app-boilerplate.git my-project -b vue-vite-ssr --depth 1
 cd my-project
 yarn
 ```
+
+> Check 'react-vite-ssr' for a react similar version.
 
 ## Usage
 

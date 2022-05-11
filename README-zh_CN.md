@@ -9,7 +9,7 @@
 > 注意vue ssr版本`vue-vite-ssr`不是默认分支。
 
 ```bash
-npx degit EverSeenTOTOTO/browser-app-boilerplate#vue-vite-ssr my-project
+git clone https://github.com/EverSeenTOTOTO/browser-app-boilerplate.git my-project -b vue-vite-ssr --depth 1
 cd my-project
 yarn
 ```
