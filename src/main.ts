@@ -5,7 +5,7 @@ import { Quasar } from 'quasar';
 import App from './App.vue';
 import { createRouter } from './router';
 import type { AppStore } from './store';
-import { createStore, STORE_KEY } from './store';
+import { createStore } from './store';
 
 export type RenderContext = {
   req: Request;
@@ -23,7 +23,6 @@ export function createApp(ctx?: RenderContext) {
   const store = createStore();
 
   app.use(router);
-  app.provide(STORE_KEY, store);
   app.use(Quasar, {}, ctx);
 
   return { app, router, store };
