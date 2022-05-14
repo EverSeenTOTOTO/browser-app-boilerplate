@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
+import { Ref } from 'vue';
 import { HomeStore } from './modules/home';
 import { AboutStore } from './modules/about';
 
-export type PrefetchStore<State> = {
+export type PrefetchStore<State> = { [K in keyof State]: Ref<State[K]> } & {
   // merge ssr prefetched data
   hydrate(state: State): void;
   // provide ssr prefetched data
@@ -28,8 +29,12 @@ export class AppStore {
     Object.keys(data).forEach((key) => {
       const k = key as PickKeys<AppStore>;
 
+      if (import.meta.env.DEV) {
+        console.log(`hydrate ${k}`);
+      }
+
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      this[k]?.hydrate?.(data[k] as any);
+      if (data[k]) this[k]?.hydrate?.(data[k] as any);
     });
   }
 
