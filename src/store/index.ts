@@ -2,11 +2,11 @@ import { createContext, useContext } from 'react';
 import { HomeStore } from './modules/home';
 import { AboutStore } from './modules/about';
 
-export type PrefetchStore<State> = {
+export type PrefetchStore<State> = State & {
   // merge ssr prefetched data
   hydrate(state: State): void;
   // provide ssr prefetched data
-  dehydra(): State;
+  dehydra(): State | undefined;
 };
 
 type PickKeys<T> = {
@@ -27,8 +27,12 @@ export class AppStore {
     Object.keys(data).forEach((key) => {
       const k = key as PickKeys<AppStore>;
 
+      if (import.meta.env.DEV) {
+        console.info(`hydrate ${k}`);
+      }
+
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      this[k]?.hydrate?.(data[k] as any);
+      if (this[k]) this[k]?.hydrate?.(data[k] as any);
     });
   }
 
@@ -49,7 +53,7 @@ export class AppStore {
 const appStore = new AppStore();
 
 export const createStore = () => appStore;
-export const RootContext = createContext<AppStore>(createStore());
+export const RootContext = createContext<AppStore>(appStore);
 export const useStore = <T extends keyof AppStore>(key: T): AppStore[T] => {
   const root = useContext(RootContext);
 
