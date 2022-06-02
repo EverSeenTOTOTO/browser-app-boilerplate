@@ -14,7 +14,7 @@ cd my-project
 yarn
 ```
 
-> Check vue-vite-ssr for a vue similar version.
+> Check `vue-vite-ssr` for a vue similar version. A real project use this boilerplate can be found [here](https://github.com/EverSeenTOTOTO/pen-middleware), which use `vite`+`react`+`react-dom`+`react-dom-router`+`mobx`+`mui`.
 
 ## Usage
 
@@ -38,7 +38,7 @@ yarn
 
 4. What's the difference from [official vite ssr demo](https://github.com/vitejs/vite/tree/main/playground/ssr-react)?
 
-    The most difference is we take `render` function defined in `index.server.ts` as a [middleware](./config/vite.dev.ts), and still use `ViteDevServer` for development.
+    The biggest difference is we take `render` function defined in `index.server.ts` as a [middleware](./config/vite.dev.ts), and still use `ViteDevServer` for development.
     The official demo however use their [`server.js`](https://github.com/vitejs/vite/blob/main/playground/ssr-react/server.js) as dev server, and regard `ViteDevServer` as a middleware (set `server.middlewareMode`).
 
 ## Project Detail
