@@ -1,11 +1,12 @@
 <script lang="ts">
 import { useStore } from '@/store';
-import { PrefetchContext } from '@/main';
 
 export default {
   name: 'HomePage',
-  prefetch(ctx: PrefetchContext) {
-    return ctx.store.home.fetchName();
+  prefetch() {
+    const store = useStore('home');
+
+    return store.fetchName();
   },
   setup() {
     const store = useStore('home');
