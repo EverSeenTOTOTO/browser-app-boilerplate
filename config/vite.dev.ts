@@ -8,8 +8,8 @@ const devMock = () => ({
     const { logger } = vite.config;
 
     vite.middlewares.use((req, res, next) => {
-      if (/^\/api\//.test(req.originalUrl)) {
-        logger.info(`mock ${req.originalUrl}`);
+      if (/^\/api\//.test(req.url)) {
+        logger.info(`mock ${req.url}`);
 
         res.end('vite dev');
       } else {
@@ -29,7 +29,7 @@ const devSSR = () => ({
     return () => vite.middlewares.use(async (req, res, next) => {
       try {
         const { render } = await vite.ssrLoadModule(paths.serverEntry);
-        const template = await vite.transformIndexHtml(req.originalUrl, templateHtml);
+        const template = await vite.transformIndexHtml(req.url, templateHtml);
         const { html } = await render({ req, res, template });
 
         res.end(html);
