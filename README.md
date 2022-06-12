@@ -12,11 +12,10 @@ cd my-awesome-app
 yarn
 ```
 
-> Note: You need to install `commitizen` globally: `npm i -g commitizen`.
+> Note: You may install `commitizen` globally for `git cz`: `npm i -g commitizen`, or you can use `npx cz`.
 
 ## Usage
 
 + dev: `make dev`
 
 + build: `make build`
-
