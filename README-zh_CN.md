@@ -14,6 +14,10 @@ cd my-project
 yarn
 ```
 
+> 你可以全局安装`commitizen`来使用`git cz`命令，也或者你可以使用`npx cz`。
+
+> 查看`react-vite-ssr`分支来获得一个使用`react`的相似版本，一个真实使用了此模板的项目可以在[这里](https://github.com/EverSeenTOTOTO/pen-middleware)找到。
+
 ## Usage
 
 + dev: `make dev`

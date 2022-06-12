@@ -14,7 +14,9 @@ cd my-project
 yarn
 ```
 
-> Check `react-vite-ssr` for a react similar version. A real project use this boilerplate can be found [here](https://github.com/EverSeenTOTOTO/pen-middleware).
+> Note: You may install `commitizen` globally for `git cz`:`npm i -g commitizen`, or you can use`npx cz`.
+
+> Checkout branch `react-vite-ssr` for a react similar version. A real project use this boilerplate can be found [here](https://github.com/EverSeenTOTOTO/pen-middleware).
 
 ## Usage
 
@@ -30,7 +32,7 @@ yarn
 
 2. Can I use this project for production?
 
-    Of course! You can extend this project for production usage. But note there are many implemention details, you may need advanced refactoring and optimization.
+    Production use of this project is possible, but will require advanced refactoring and optimization due to many implementation details.
 
 3. My git hooks not working?
 
