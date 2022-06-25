@@ -5,6 +5,7 @@ module.exports = {
     node: true,
   },
   extends: [
+    'airbnb-base',
     'airbnb-typescript/base',
     'plugin:vue/vue3-recommended',
     '@vue/typescript/recommended',
@@ -19,7 +20,6 @@ module.exports = {
   },
   plugins: [
     '@typescript-eslint',
-    'jest',
   ],
   rules: {
     'max-len': 'off',
