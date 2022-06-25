@@ -1,5 +1,9 @@
 # browser-app-boilerplate
 
+[![OSCS Status](https://www.oscs1024.com/platform/badge/EverSeenTOTOTO/browser-app-boilerplate.svg?size=small)](https://www.oscs1024.com/project/EverSeenTOTOTO/browser-app-boilerplate?ref=badge_small)
+![react@18.0.0](https://img.shields.io/badge/react-v18.0.0-blue)
+![vite@2.9.5](https://img.shields.io/badge/vite-v2.9.5-brightgreen)
+
 [English](./README.md) [中文](./README-zh_CN.md)
 
 A react ssr🚀 project boilerplate with full typescript, vite, eslint, stylelint, husky, lint-staged, commitlint support. **NO** combined, UI library or style library, especially built for those who always want to choose `eject` and keep things under control.
