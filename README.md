@@ -1,5 +1,10 @@
 # browser-app-boilerplate
 
+[![OSCS Status](https://www.oscs1024.com/platform/badge/EverSeenTOTOTO/browser-app-boilerplate.svg?size=small)](https://www.oscs1024.com/project/EverSeenTOTOTO/browser-app-boilerplate?ref=badge_small)
+![vue@3.2.33](https://img.shields.io/badge/vuejs-v3.2.33-brightgreen)
+![vite@2.9.5](https://img.shields.io/badge/vite-v2.9.5-brightgreen)
+![quasar@2.6.6](https://img.shields.io/badge/quasar-v2.6.6-blue)
+
 [English](./README.md) [中文](./README-zh_CN.md)
 
 A vue ssr🚀 project boilerplate with full typescript, vite, eslint, stylelint, husky, lint-staged, commitlint support. **NO** combined state management library, UI library or style library, especially built for those who always want to select `eject` and keep things under control.
