@@ -6,7 +6,7 @@
 
 [English](./README.md) [中文](./README-zh_CN.md)
 
-A react ssr🚀 project boilerplate with full typescript, vite, eslint, stylelint, husky, lint-staged, commitlint support. **NO** combined, UI library or style library, especially built for those who always want to choose `eject` and keep things under control.
+A react ssr🚀 project boilerplate with full typescript, vite, eslint, stylelint, husky, lint-staged, commitlint support. **NO** combined UI library or style library, especially built for those who always want to choose `eject` and keep things under control.
 
 ## Install
 
@@ -34,7 +34,7 @@ yarn
 
 2. Can I use this project for production?
 
-    Of course! You can extend this project for production usage. But note there are many implemention details, you may need advanced refactoring and optimization.
+    Production use of this project is possible, but will require advanced refactoring and optimization due to many implementation details.
 
 3. My git hooks not working?
 
