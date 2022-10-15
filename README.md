@@ -8,6 +8,12 @@
 
 A react ssr🚀 project boilerplate with full typescript, vite, eslint, stylelint, husky, lint-staged, commitlint support. **NO** combined UI library or style library, especially built for those who always want to choose `eject` and keep things under control.
 
+**WARNING**: This branch is still under development, some comments in [index.server.tsx](./src/index.server.tsx) might be helpful. Besides, the following links can be a good place to start with:
+
++ <https://github.com/reactwg/react-18/discussions/110>
+
++ <https://prateeksurana.me/blog/future-of-rendering-in-react/>
+
 ## Install
 
 > Note the react ssr version `react-vite-ssr` is not default branch.

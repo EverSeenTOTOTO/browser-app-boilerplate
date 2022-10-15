@@ -21,23 +21,6 @@ export type RenderContext = {
   req: Request;
   res: Response;
   template: string;
-  html?: string;
   routes?: AppRoutes;
   store?: AppStore
 };
-
-export type PrefetchContext = Omit<Required<RenderContext>, 'req' | 'res' | 'template' | 'html'> & { req: { originalUrl: string } };
-
-export function prefetch(ctx: PrefetchContext) {
-  const matched = ctx.routes.filter((each) => each.path === ctx.req.originalUrl);
-
-  const ps: Promise<void>[] = [];
-
-  matched.forEach((route) => {
-    if (typeof route.prefetch === 'function') {
-      ps.push(route.prefetch(ctx));
-    }
-  });
-
-  return Promise.all(ps);
-}

@@ -4,6 +4,12 @@
 
 一个react ssr🚀项目模板，具有完善的typescript，vite，eslint，stylelint, husky, lint-staged, commitlint支持。但**不**与任何UI与样式库相绑定，专为那些总是选择`eject`并试图让一切都处在自己控制下的开发者提供。
 
+**警告**: 这个分支还在开发中，[index.server.tsx](./src/index.server.tsx)中的一些注释可能有所帮助。此外，这里列出的链接是一个很好的开始：
+
++ <https://github.com/reactwg/react-18/discussions/110>
+
++ <https://prateeksurana.me/blog/future-of-rendering-in-react/>
+
 ## Install
 
 > 注意react ssr版本`react-vite-ssr`不是默认分支。

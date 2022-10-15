@@ -8,9 +8,7 @@ const About = observer(() => {
 
   return <div>
     <button onClick={() => navigate('/')}>home</button>
-    <div>
-      <button onClick={() => store.increment()}>{store.count}</button>
-    </div>
+    <button onClick={() => store.increment()}>{store.count}</button>
   </div>;
 });
 

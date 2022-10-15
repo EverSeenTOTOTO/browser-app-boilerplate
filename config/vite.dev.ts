@@ -11,7 +11,7 @@ const devMock = () => ({
       if (/^\/api\//.test(req.originalUrl)) {
         logger.info(`mock ${req.originalUrl}`);
 
-        res.end('vite dev');
+        setTimeout(() => res.end('vite dev'), 1000);
       } else {
         next();
       }
@@ -30,9 +30,8 @@ const devSSR = () => ({
       try {
         const { render } = await vite.ssrLoadModule(paths.serverEntry);
         const template = await vite.transformIndexHtml(req.originalUrl, templateHtml);
-        const { html } = await render({ req, res, template });
 
-        res.end(html);
+        await render({ req, res, template });
       } catch (e) {
         vite.ssrFixStacktrace(e);
         logger.error(e.stack ?? e.message);

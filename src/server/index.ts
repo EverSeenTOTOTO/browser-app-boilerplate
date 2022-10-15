@@ -5,8 +5,7 @@ import express from 'express';
 // hypothesis: client assets to be in the same directory
 export const createServer = async () => {
   const server = express();
-  // eslint-disable-next-line import/no-dynamic-require, @typescript-eslint/no-var-requires, global-require
-  const { render } = require(path.join(__dirname, 'index.server.js'));
+  const { render } = await import(path.join(__dirname, 'index.server.js'));
   const template = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf-8');
 
   server.use(express.static(__dirname, {
@@ -14,15 +13,12 @@ export const createServer = async () => {
   }));
 
   server.get(/^\/api\//, (_, res) => {
-    res.send('react and vite!');
+    setTimeout(() => res.end('react and vite!'), 1000);
   });
 
-  server.get('*', async (req, res) => {
-    const { html } = await render({ req, res, template });
-
-    res.setHeader('Content-Type', 'text/html');
-    res.end(html);
-  });
+  server.get('*', (req, res) => render({
+    req, res, template,
+  }));
 
   return server;
 };

@@ -1,19 +1,17 @@
-import { observer } from 'mobx-react-lite';
-import { useStore } from '@/store';
-import { PrefetchContext } from '@/App';
+import { lazy, Suspense } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export const prefetch = (ctx: PrefetchContext) => ctx.store.home.fetchName();
+const Hello = lazy(() => import('./comonents/Hello'));
 
-const Home = observer(() => {
-  const store = useStore('home');
-  const hello = `hello ${store.name}`;
+const Home = () => {
   const navigate = useNavigate();
 
   return <div>
-    <button onClick={() => navigate('/about')}>about</button>
-    <div>{hello}</div>
-  </div>;
-});
+        <button onClick={() => navigate('/about')}>about</button>
+        <Suspense fallback={<div>Loading...</div>}>
+            <Hello />
+        </Suspense>
+    </div>;
+};
 
 export default Home;
