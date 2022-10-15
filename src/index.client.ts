@@ -33,7 +33,7 @@ if (root) {
     }
 
     try {
-      // sync or fallback to client prefetch
+      // sync or fallback to client prefetch, it's optinal
       await prefetch({ app, router, store }, matched);
     } finally {
       next();

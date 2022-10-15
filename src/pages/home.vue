@@ -10,10 +10,9 @@ export default {
   },
   setup() {
     const store = useStore('home');
-    const hello = `hello ${store.name.value}`;
 
     return {
-      hello,
+      data: store.name.value,
     };
   },
 };
@@ -25,7 +24,7 @@ export default {
       About
     </router-link>
     <div class="scoped">
-      {{ hello }}
+      hello {{ data }}
     </div>
   </div>
 </template>
