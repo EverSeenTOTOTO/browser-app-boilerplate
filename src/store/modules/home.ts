@@ -1,12 +1,12 @@
 import fetch from 'isomorphic-fetch';
 import { makeAutoObservable } from 'mobx';
-import type { AppStore, PrefetchStore } from '..';
+import type { AppStore } from '..';
 
 export type HomeState = {
   name: string
 };
 
-export class HomeStore implements PrefetchStore<HomeState> {
+export class HomeStore {
   name = '';
 
   root: AppStore;
@@ -20,15 +20,5 @@ export class HomeStore implements PrefetchStore<HomeState> {
     const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/name`);
 
     this.name = await res.text();
-  }
-
-  hydrate(state: HomeState): void {
-    this.name = state.name;
-  }
-
-  dehydra(): HomeState {
-    return {
-      name: this.name,
-    };
   }
 }
