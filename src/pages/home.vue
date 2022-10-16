@@ -10,10 +10,9 @@ export default {
   },
   setup() {
     const store = useStore('home');
-    const hello = `hello ${store.name.value}`;
 
     return {
-      hello,
+      data: store.name
     };
   },
 };
@@ -22,7 +21,7 @@ export default {
 <template>
   <div>
     <q-banner class="scoped">
-      {{ hello }}
+      hello {{ data }}
     </q-banner>
     <router-link to="/about">
       <q-chip>
