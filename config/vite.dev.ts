@@ -46,6 +46,9 @@ export default defineConfig((c) => {
   const config = base(c);
   return {
     ...config,
+    server: {
+      host: 'localhost',
+    },
     plugins: [
       ...(config.plugins || []),
       devMock(),
