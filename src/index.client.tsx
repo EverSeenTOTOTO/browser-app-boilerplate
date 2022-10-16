@@ -18,11 +18,11 @@ if (window.__PREFETCHED_STATE__) {
   // merge ssr prefetched data
   store.hydrate(window.__PREFETCHED_STATE__);
   delete window.__PREFETCHED_STATE__;
+} else {
+  // fallback to client prefetch
+  prefetch({ routes, store, req: { originalUrl: window.location.pathname } });
 }
 
 root.render(<BrowserRouter>
     <App store={store} routes={routes}/>
   </BrowserRouter>);
-
-// sync or fallback to client prefetch, it's optinal
-prefetch({ routes, store, req: { originalUrl: window.location.pathname } });

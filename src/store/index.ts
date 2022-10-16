@@ -2,7 +2,7 @@ import { createContext, useContext } from 'react';
 import { HomeStore } from './modules/home';
 import { AboutStore } from './modules/about';
 
-export type PrefetchStore<State> = State & {
+export type PrefetchStore<State> = {
   // merge ssr prefetched data
   hydrate(state: State): void;
   // provide ssr prefetched data
