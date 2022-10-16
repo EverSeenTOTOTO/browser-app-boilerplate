@@ -12,7 +12,7 @@ export default {
     const store = useStore('home');
 
     return {
-      data: store.name.value,
+      data: store.name,
     };
   },
 };
