@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { Ref } from 'vue';
 import { HomeStore } from './modules/home';
 import { AboutStore } from './modules/about';
 
-export type PrefetchStore<State> = { [K in keyof State]: Ref<State[K]> } & {
+export type PrefetchStore<State> = {
   // merge ssr prefetched data
   hydrate(state: State): void;
   // provide ssr prefetched data

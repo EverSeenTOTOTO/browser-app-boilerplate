@@ -1,48 +1,41 @@
 import { createApp, prefetch } from './main';
 import './style/index.scss';
 
-const root = document.getElementById('root');
+const { app, router, store } = createApp();
 
-if (root) {
-  const { app, router, store } = createApp();
+router.beforeResolve(async (to, from, next) => {
+  const { matched } = to;
+  const prevMatched = from.matched;
 
-  router.beforeResolve(async (to, from, next) => {
-    const { matched } = to;
-    const prevMatched = from.matched;
-
-    let diffed = false;
-    const activated = matched.filter((c, i) => {
-      if (!diffed) {
-        diffed = (prevMatched[i] !== c);
-      }
-      return diffed;
-    });
-
-    if (activated.length === 0) {
-      next();
-      return;
+  let diffed = false;
+  const activated = matched.filter((c, i) => {
+    if (!diffed) {
+      diffed = (prevMatched[i] !== c);
     }
-
-    if (window.__PREFETCHED_STATE__) {
-      if (import.meta.env.DEV) {
-        console.log('prefetched state', window.__PREFETCHED_STATE__);
-      }
-      // merge ssr prefetched data
-      store.hydrate(window.__PREFETCHED_STATE__);
-      delete window.__PREFETCHED_STATE__;
-    }
-
-    try {
-      // sync or fallback to client prefetch, it's optinal
-      await prefetch({ app, router, store }, matched);
-    } finally {
-      next();
-    }
+    return diffed;
   });
 
-  router.isReady().then(() => {
-    app.mount('#root');
-  });
-} else {
-  console.error('Root element #root not found');
-}
+  if (activated.length === 0) {
+    next();
+    return;
+  }
+
+  if (window.__PREFETCHED_STATE__) {
+    if (import.meta.env.DEV) {
+      console.log('prefetched state', window.__PREFETCHED_STATE__);
+    }
+
+    // merge ssr prefetched data
+    store.hydrate(window.__PREFETCHED_STATE__);
+    delete window.__PREFETCHED_STATE__;
+  } else {
+    // fallback to client prefetch
+    prefetch({ app, router, store }, matched).catch(console.error);
+  }
+
+  next();
+});
+
+router.isReady().then(() => {
+  app.mount('#root');
+});
