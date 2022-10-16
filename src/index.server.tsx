@@ -9,7 +9,7 @@ import { createRoutes } from './routes';
 const APP_HTML = '<!--app-html-->';
 const APP_STATE = '<!--app-state-->';
 
-const serialize = (state: Record<string, unknown>) => `<script>;window.__PREFETCHED_STATE__=${serializeJavascript(state)};</script>`;
+const serialize = (state: Record<string, unknown> | undefined) => `<script>;window.__PREFETCHED_STATE__=${serializeJavascript(state)};</script>`;
 
 export async function render(context: RenderContext) {
   const ctx = context as Required<RenderContext>;
@@ -21,7 +21,11 @@ export async function render(context: RenderContext) {
   ctx.store = store;
   ctx.routes = routes;
 
-  await prefetch(ctx).catch(console.error); // better nothrow
+  const success = await prefetch(ctx).catch((e) => {
+    console.error(e);
+
+    return false;
+  });
 
   const html = ReactDOMServer.renderToString(
     <StaticRouter location={req.originalUrl}>
@@ -29,7 +33,8 @@ export async function render(context: RenderContext) {
     </StaticRouter>,
   );
 
-  const state = store.dehydra();
+  // state avaliable now
+  const state = success ? store.dehydra() : undefined;
 
   ctx.html = ctx.template
     .replace(APP_HTML, html)
