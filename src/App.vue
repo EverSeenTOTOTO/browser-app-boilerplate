@@ -1,13 +1,5 @@
-<script setup>
-const hello = `${process.env.HELLO} vue`;
-</script>
 <template>
-  <div class="scoped">
-    {{ hello }}
-  </div>
+  <router-view v-slot="{ Component }">
+    <component :is="Component" />
+  </router-view>
 </template>
-<style lang="scss" scoped>
-.scoped {
-  color: blue;
-}
-</style>

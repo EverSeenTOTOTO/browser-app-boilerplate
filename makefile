@@ -18,12 +18,19 @@ clean:
 
 .PHONY: dev
 dev: clean
-	npx webpack serve --config config/webpack.dev.js
+	npx webpack --mode development --config config/webpack.serverEntry.js
+	npx webpack serve --mode development --config config/webpack.dev.js
 
 .PHONY: build
 build: clean
-	npx webpack --config config/webpack.prod.js
+	# parallel use \n to separate inputs
+	echo -e "prod\\nserver\\nserverEntry" |\
+		parallel -j4 --tty "npx webpack --mode production --config config/webpack.{}.js"
 
 .PHONY: start
 start: build
-	npx serve -s ${DIST}
+	SSR=true node ${DIST}/server.js
+
+.PHONY: server
+server:
+	SSR=true node ${DIST}/server.js
