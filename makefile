@@ -29,8 +29,8 @@ build: clean
 
 .PHONY: start
 start: build
-	SSR=true node ${DIST}/server.js
+	node ${DIST}/server.js
 
 .PHONY: server
 server:
-	SSR=true node ${DIST}/server.js
+	node ${DIST}/server.js

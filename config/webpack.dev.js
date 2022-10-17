@@ -26,11 +26,9 @@ const devSSR = (devServer) => async (req, res, next) => {
     // patchRequire(ofs);
     // const { render } = require(paths.serverEntryOutput);
 
-    process.env.SSR = true; // FIXME: see route/index.ts
     // eslint-disable-next-line import/no-dynamic-require
     const { render } = await require(paths.serverEntryOutput);
     const { html } = await render({ req, res, template });
-    process.env.SSR = false;
 
     res.end(html);
   } catch (e) {

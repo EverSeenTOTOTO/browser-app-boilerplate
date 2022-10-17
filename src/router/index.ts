@@ -16,9 +16,9 @@ const routes = Object.keys(pages).map((name) => ({
 
 export function createRouter() {
   return _createRouter({
-    history: process.env.SSR
-      ? createMemoryHistory()
-      : createWebHistory(),
+    history: globalThis.document
+      ? createWebHistory()
+      : createMemoryHistory(),
     routes,
   });
 }
