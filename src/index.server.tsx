@@ -5,16 +5,9 @@ import { App, RenderContext } from './App';
 import { createStore } from './store';
 import { createRoutes } from './routes';
 
-/**
-  * Still using the `renderToString` paradigm and haven't used any new React18 features (especially "selective hydration"),
-  * because at the point ReactDOMServer.PipeableStream ends, app states fetched in lazy-load units like <Hello /> may not
-  * be ready yet, which means we can't serialize and inject them into html stream. But as Next.js also does not currently
-  * support server-side data fetching within <Suspense> boundaries (see https://nextjs.org/docs/advanced-features/react-18/streaming#data-fetching),
-  * let's leave this issue for future.
-  */
-
-const createStream = (ctx: RenderContext) => new Writable({
-  write(chunk, encoding, callback) {
+const createStream = (ctx: RenderContext) => {
+  const writable = new Writable({
+    write(chunk, encoding, callback) {
     /**
      * We should collect newly changed app style here, pseudo code:
      *
@@ -29,10 +22,15 @@ const createStream = (ctx: RenderContext) => new Writable({
      * we need to determine which states are changed between two fractional writes, collect and may or may not inject them into somewhere appropriately.
      * */
 
-    // Finally write whatever React tried to write.
-    ctx.res.write(chunk, encoding, callback);
-  },
-});
+      // Finally write whatever React tried to write.
+      ctx.res.write(chunk, encoding, callback);
+    },
+  });
+
+  writable.on('close', () => ctx.res.end());
+
+  return writable;
+};
 
 export async function render(context: RenderContext) {
   const ctx = context as Required<RenderContext>;
@@ -59,11 +57,11 @@ export async function render(context: RenderContext) {
           res.setHeader('Content-type', 'text/html');
 
           // first send head part
-          wrappedRes.write(headPart);
+          wrappedRes.write(headPart.trim());
           // then rendered content
           stream.pipe(wrappedRes);
           // finally send rest of template
-          wrappedRes.end(tailPart, () => res.end());
+          wrappedRes.write(tailPart.trim()); // FIXME: the content will be <html><head><body><content></body></html><suspense content>
         },
         onShellError(error) {
           console.error(error);
