@@ -1,4 +1,4 @@
-import { createRoot } from 'react-dom/client';
+import { hydrateRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { App, prefetch } from './App';
 import { createRoutes } from './routes';
@@ -7,7 +7,6 @@ import './styles/index.scss';
 
 const container = document.getElementById('root');
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-const root = createRoot(container!);
 const store = createStore();
 const routes = createRoutes();
 
@@ -23,6 +22,6 @@ if (window.__PREFETCHED_STATE__) {
   prefetch({ routes, store, req: { originalUrl: window.location.pathname } });
 }
 
-root.render(<BrowserRouter>
+hydrateRoot(container!, <BrowserRouter>
     <App store={store} routes={routes}/>
   </BrowserRouter>);
