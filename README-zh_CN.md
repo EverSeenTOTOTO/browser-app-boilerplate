@@ -2,7 +2,7 @@
 
 [English](./README.md) [中文](./README-zh_CN.md)
 
-一个react ssr🚀项目模板，具有完善的typescript，vite，eslint，stylelint, husky, lint-staged, commitlint支持。但**不**与任何UI与样式库相绑定，专为那些总是选择`eject`并试图让一切都处在自己控制下的开发者提供。
+一个react ssr🚀项目模板，具有完善的typescript，vite，eslint，stylelint, husky, lint-staged, commitlint支持。但**不**与任何UI与样式库相绑定，专为那些总是选择`eject`并试图让一切都处在自己控制下的开发者提供。阅读[Wiki](https://github.com/EverSeenTOTOTO/browser-app-boilerplate/wiki)以获得更多内容。
 
 ## Install
 
@@ -44,13 +44,13 @@ yarn
 + /
   + config/
     - vite.dev.ts           # client dev config
-    - vite.prod.ts          # clientside build config
+    - vite.prod.ts          # clientApp build config
     - vite.server.ts        # server build config
-    - vite.serverEntry.ts   # serverside build config
+    - vite.serverEntry.ts   # serverApp build config
   + src/
     + server/
       - index.ts        # server entry
     - main.ts
-    - index.server.tsx   # serverside entry
-    - index.client.tsx   # clientside entry
+    - index.server.tsx   # serverApp entry
+    - index.client.tsx   # clientApp entry
 ```
