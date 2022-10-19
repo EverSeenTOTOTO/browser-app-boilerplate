@@ -8,7 +8,7 @@ const routes = Object.keys(pages).map((path) => {
     name,
     path: name === 'Home' ? '/' : `/${name.toLowerCase()}`,
     component: pages[path].default,
-    // ssr prefetch hook defined in component fil
+    // ssr prefetch hook defined in component file
     prefetch: pages[path].prefetch,
   };
 });
