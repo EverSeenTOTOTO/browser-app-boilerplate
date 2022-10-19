@@ -2,11 +2,9 @@
 
 [English](./README.md) [中文](./README-zh_CN.md)
 
-一个vue ssr🚀项目模板，具有完善的typescript，vite，eslint，stylelint, husky, lint-staged, commitlint支持。但**不**与任何状态管理、UI与样式库相绑定，专为那些总是选择`eject`并试图让一切都处在自己控制下的开发者提供。
+一个vue ssr🚀项目模板，具有完善的typescript，vite，eslint，stylelint, husky, lint-staged, commitlint支持。但**不**与任何状态管理、UI与样式库相绑定，专为那些总是选择`eject`并试图让一切都处在自己控制下的开发者提供。阅读[Wiki](https://github.com/EverSeenTOTOTO/browser-app-boilerplate/wiki)来获得更多细节。
 
 ## Install
-
-> 注意vue ssr版本`vue-vite-ssr`不是默认分支。
 
 ```bash
 git clone https://github.com/EverSeenTOTOTO/browser-app-boilerplate.git my-project -b vue-vite-ssr --depth 1
@@ -48,13 +46,13 @@ yarn
 + /
   + config/
     - vite.dev.ts           # client dev config
-    - vite.prod.ts          # clientside build config
+    - vite.prod.ts          # clientApp build config
     - vite.server.ts        # server build config
-    - vite.serverEntry.ts   # serverside build config
+    - vite.serverEntry.ts   # serverApp build config
   + src/
     + server/
       - index.ts        # server entry
     - main.ts
-    - index.server.ts   # serverside entry
-    - index.client.ts   # clientside entry
+    - index.server.ts   # serverApp entry
+    - index.client.ts   # clientApp entry
 ```
