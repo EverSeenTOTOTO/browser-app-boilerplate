@@ -7,7 +7,7 @@
 
 [English](./README.md) [中文](./README-zh_CN.md)
 
-A vue ssr🚀 project boilerplate with full typescript, vite, eslint, stylelint, husky, lint-staged, commitlint support. **NO** combined state management library, UI library or style library, especially built for those who always want to select `eject` and keep things under control.
+A vue ssr🚀 project boilerplate with full typescript, vite, eslint, stylelint, husky, lint-staged, commitlint support. **NO** combined state management library, UI library or style library, especially built for those who always want to select `eject` and keep things under control. Read [Wiki](https://github.com/EverSeenTOTOTO/browser-app-boilerplate/wiki) for more details.
 
 ## Install
 
@@ -54,13 +54,13 @@ yarn
 + /
   + config/
     - vite.dev.ts           # client dev config
-    - vite.prod.ts          # clientside build config
+    - vite.prod.ts          # clientApp build config
     - vite.server.ts        # server build config
-    - vite.serverEntry.ts   # serverside build config
+    - vite.serverEntry.ts   # serverApp build config
   + src/
     + server/
       - index.ts        # server entry
     - main.ts
-    - index.server.ts   # serverside entry
-    - index.client.ts   # clientside entry
+    - index.server.ts   # serverApp entry
+    - index.client.ts   # clientApp entry
 ```
