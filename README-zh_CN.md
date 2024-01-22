@@ -4,6 +4,8 @@
 
 一个vue ssr🚀项目模板，具有完善的typescript，vite，eslint，stylelint, husky, lint-staged, commitlint支持。但**不**与任何状态管理、UI与样式库相绑定，专为那些总是选择`eject`并试图让一切都处在自己控制下的开发者提供。阅读[Wiki](https://github.com/EverSeenTOTOTO/browser-app-boilerplate/wiki)来获得更多细节。
 
+> 注意，我已经有一段时间没有更新这个仓库了，因此构建工具和框架的版本可能稍显陈旧。不过，相信这个仓库还是可以有效展示服务器端渲染（SSR）的核心理念的。
+
 ## Install
 
 ```bash
