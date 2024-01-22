@@ -8,6 +8,8 @@
 
 A vue ssr🚀 project boilerplate with full typescript, vite, eslint, stylelint, husky, lint-staged, commitlint support. **NO** combined state management library, UI library or style library, especially built for those who always want to select `eject` and keep things under control. Read [Wiki](https://github.com/EverSeenTOTOTO/browser-app-boilerplate/wiki) for more details.
 
+> It's been some time since I last updated this repository, so the versions of the build tools and frameworks might be a bit outdated. However, I believe that the fundamental principles of Server Side Rendering (SSR) are still well represented within this repository.
+
 ## Install
 
 ```bash
